@@ -1,70 +1,82 @@
 
+let playerScore = 0
+let computerScore = 0
+
 
 computerPlay = () => {
   let randomNum = Math.floor(Math.random()*3)
+  let result = ""
 
-  switch(randomNum){
-    case 0:
-      return "rock"
-      break
-    case 1:
-      return "paper"
-      break
-    case 2:
-      return "scissors"
-      break
+  if (randomNum === 0) {
+    result = "rock"
+  } else if (randomNum === 1) {
+    result =  "paper"
+  } else if (randomNum === 2) {
+    result = "scissors"
   }
+  return result
 }
 
 
 
+playRound = (playerSelection = "", computerSelection = "") => {
 
-playRound = () => {
-  let playerChoose = prompt("choose")
-  let playerSelection = playerChoose.toLowerCase()
-  let computerSelection = computerPlay()
+  let result = ""
 
-  if (playerSelection === computerSelection) {
-    return `player: ${playerSelection} vs computer: ${computerSelection}
-    it's a tie!
-    `
-  } else if (playerSelection === "rock") {
-      if (computerSelection === "paper") {
-        return `player: ${playerSelection} vs computer: ${computerSelection}
-        you lose
-        `
-    } 
-      if (computerSelection === "scissors") {
-        return `player: ${playerSelection} vs computer: ${computerSelection}
-        you won!
-        `
-    }
-    
+  if (playerSelection == computerSelection) {
+    return "tie"
   } 
-    else if (playerSelection === "paper") {
-      if (computerSelection === "rock") {
-        return `player: ${playerSelection} vs computer: ${computerSelection}
-        you won!
-      `
-    } 
-      if (computerSelection === "scissors") {
-        return `player: ${playerSelection} vs computer: ${computerSelection}
-        you lose
-      `
+    else if (playerSelection == "rock") {
+    if (computerSelection == "paper") {
+        playerScore += 1
+        result = "computer won"
+    }
+    if (computerSelection == "scissors") {
+      computerScore += 1
+      result = "player won"
     }
   }
-    else if (playerSelection === "scissors") {
-      if (computerSelection === "rock") {
-        return `player: ${playerSelection} vs computer: ${computerSelection}
-        you lose
-      `
-    } 
-      if (computerSelection === "paper") {
-        return `player: ${playerSelection} vs computer: ${computerSelection}
-        you won!
-      `
+    else if (playerSelection == "paper") {
+      if (computerSelection == "rock") {
+        playerScore += 1
+        result = "player won"
+      }
+      if (computerSelection == "scissors") {
+        computerScore += 1
+        result = "computer won"
+      }
     }
-}
+    else if (playerSelection == "scissors") {
+      if (computerSelection == "rock") {
+        computerScore += 1
+        result = "computer won"
+      }
+      if (computerSelection == "paper") {
+        playerScore += 1
+        result = "player won"
+      }
+    }
+    return `${result}
+    player: ${playerSelection} vs computer: ${computerSelection}
+    `
 }
 
-console.log(playRound())
+
+function game() {
+  for (let i = 1; i < 6; i++) {
+      let playerSelection = prompt("Please choose Rock, Paper or Scissors: ")
+      let computerSelection = computerPlay()
+      console.log(`Round ${i}`)
+      playRound(playerSelection, computerSelection)
+      console.log(`You: ${playerScore} - Me: ${computerScore}`)
+  }
+
+  if (playerScore > computerScore) {
+          console.log("Congratulations, you won the match!")
+      } else {
+          console.log("You lost the match, better luck next time!")
+      }
+  }
+
+game();
+
