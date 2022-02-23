@@ -68,6 +68,7 @@ function game() {
       let computerSelection = computerPlay()
       console.log(`Round ${i}`)
       playRound(playerSelection, computerSelection)
+      console.log(`player: ${playerSelection} vs pc: ${computerSelection}`)
       console.log(`You: ${playerScore} - Me: ${computerScore}`)
   }
 
@@ -79,4 +80,6 @@ function game() {
   }
 
 game();
+
+
 
