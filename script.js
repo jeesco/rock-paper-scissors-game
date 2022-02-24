@@ -1,3 +1,19 @@
+const rock = document.getElementById('rock')
+const paper = document.getElementById('paper')
+const scissors = document.getElementById('scissors')
+
+
+
+
+const theResult = document.querySelector("#result");
+
+const theres = document.createElement('h3');
+theres.classList.add('theres');
+theres.textContent = 'result';
+
+
+theResult.appendChild(theres);
+
 
 let playerScore = 0
 let computerScore = 0
@@ -24,7 +40,7 @@ playRound = (playerSelection = "", computerSelection = "") => {
   let result = ""
 
   if (playerSelection == computerSelection) {
-    return "tie"
+    return "I'ts a tie"
   } 
     else if (playerSelection == "rock") {
     if (computerSelection == "paper") {
@@ -56,30 +72,46 @@ playRound = (playerSelection = "", computerSelection = "") => {
         result = "player won"
       }
     }
-    return `${result}
-    player: ${playerSelection} vs computer: ${computerSelection}
+    return `
+    you choose: ${playerSelection} 
+    vs 
+    the pc choose: ${computerSelection}
+    ${result}
     `
 }
 
 
-function game() {
-  for (let i = 1; i < 6; i++) {
-      let playerSelection = prompt("Please choose Rock, Paper or Scissors: ")
-      let computerSelection = computerPlay()
-      console.log(`Round ${i}`)
-      playRound(playerSelection, computerSelection)
-      console.log(`player: ${playerSelection} vs pc: ${computerSelection}`)
-      console.log(`You: ${playerScore} - Me: ${computerScore}`)
-  }
 
-  if (playerScore > computerScore) {
-          console.log("Congratulations, you won the match!")
-      } else {
-          console.log("You lost the match, better luck next time!")
-      }
-  }
+rock.addEventListener('click', () => {
+  playerSelection = "rock"
+  computerSelection = computerPlay()
 
-game();
+  let ther =(playRound(playerSelection, computerSelection))
+  
+  theres.classList.add('ther');
+  theres.textContent = ther;
+})
 
+paper.addEventListener('click', () => {
+  playerSelection = "paper"
+  computerSelection = computerPlay()
 
+  let ther =(playRound(playerSelection, computerSelection))
+  
+  theres.classList.add('ther');
+  theres.textContent = ther;
+})
+
+scissors.addEventListener('click', () => {
+  playerSelection = "scissors"
+  computerSelection = computerPlay()
+
+  let ther =(playRound(playerSelection, computerSelection))
+  
+  theres.classList.add('ther');
+  theres.textContent = ther;
+
+  
+
+})
 
