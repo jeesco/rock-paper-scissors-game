@@ -81,8 +81,7 @@ playRound = (playerSelection = "", computerSelection = "") => {
 }
 
 
-
-rock.addEventListener('click', () => {
+function clicks() {
   playerSelection = "rock"
   computerSelection = computerPlay()
 
@@ -90,28 +89,12 @@ rock.addEventListener('click', () => {
   
   theres.classList.add('ther');
   theres.textContent = ther;
-})
+}
 
-paper.addEventListener('click', () => {
-  playerSelection = "paper"
-  computerSelection = computerPlay()
 
-  let ther =(playRound(playerSelection, computerSelection))
-  
-  theres.classList.add('ther');
-  theres.textContent = ther;
-})
+rock.addEventListener('click', clicks)
 
-scissors.addEventListener('click', () => {
-  playerSelection = "scissors"
-  computerSelection = computerPlay()
+paper.addEventListener('click', clicks)
 
-  let ther =(playRound(playerSelection, computerSelection))
-  
-  theres.classList.add('ther');
-  theres.textContent = ther;
-
-  
-
-})
+scissors.addEventListener('click', clicks)
 
