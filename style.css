@@ -52,6 +52,11 @@ p {
   cursor: pointer;
 }
 
+#rock img:hover {
+  border: 2px solid black;
+  transform: scale(1.1);
+}
+
 #paper {
   width: 20%;
   height: auto;
@@ -68,6 +73,11 @@ p {
   cursor: pointer;
 }
 
+#paper img:hover {
+  border: 2px solid black;
+  transform: scale(1.1);
+}
+
 #scissors {
   width: 20%;
   height: auto;
@@ -82,6 +92,11 @@ p {
   height: auto;
   border-radius: 50%;
   cursor: pointer;
+}
+
+#scissors img:hover {
+  border: 2px solid black;
+  transform: scale(1.1);
 }
 
 #result {
