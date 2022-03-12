@@ -49,6 +49,7 @@ p {
   width: 100%;
   height: auto;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 #paper {
@@ -64,6 +65,7 @@ p {
   width: 100%;
   height: auto;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 #scissors {
@@ -79,6 +81,7 @@ p {
   width: 100%;
   height: auto;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 #result {
